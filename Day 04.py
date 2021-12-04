@@ -40,12 +40,12 @@ def scoreCardResult(numbersDrawn, board, scoreCard = [[False] * 5] * 5, drawTurn
 delist = lambda x : x[0]
 def bingo(path, strategy = "Win"):
     numbersDrawn, boards = read_data(path)
-    unmakredSums, draw, times = list(zip(*map(partial(scoreCardResult, numbersDrawn), boards)))
+    unmarkedSums, draw, times = list(zip(*map(partial(scoreCardResult, numbersDrawn), boards)))
     if strategy == "Win":
         stratFilter = list(map(lambda t : t == min(times), times))
     elif strategy == "Lose":
         stratFilter = list(map(lambda t : t == max(times), times))
-    unmarkedSum = delist(list(compress(unmakredSums, stratFilter)))
+    unmarkedSum = delist(list(compress(unmarkedSums, stratFilter)))
     draw = delist(list(compress(draw, stratFilter)))
     return unmarkedSum * draw
 ### Part 1
