@@ -29,9 +29,7 @@ def scoreCardResult(numbersDrawn, board, scoreCard = [[False] * 5] * 5, drawTurn
     winningColumn = detectWinningRow(zip(*scoreCard), board)
     markedNumbers = findMarkedNumbers(board, scoreCard)
     unmarkedSum = sumBoard(board) - sumBoard(markedNumbers)
-    if len(winningRow) != 0:
-        return unmarkedSum, draw, drawTurn
-    elif len(winningColumn) != 0:
+    if (len(winningRow) != 0) | (len(winningColumn) != 0):
         return unmarkedSum, draw, drawTurn
     elif draw == finalDraw:
         return 0, draw, drawTurn
