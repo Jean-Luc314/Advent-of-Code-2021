@@ -1,7 +1,6 @@
 ### Functions
 from functools import partial
 from itertools import compress
-from compose import compose
 
 def read_data(path):
     coords = list(open(path))[0].split(",")
